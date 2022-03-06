@@ -12,7 +12,6 @@ function showAd() {
   `
   setEvent()
 }
-
 function setEvent() {
   elemMain.querySelector('#Ad').addEventListener('click', atClick, true)
 }
