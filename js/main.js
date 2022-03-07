@@ -1,6 +1,6 @@
 const elemMain = document.querySelector('#Main');
-const isShow = check();
-if (isShow) { setTimeout(showAd, 500); }
+const cookieStr = document.cookie;
+if (!cookieStr.includes('isClosed')) { setTimeout(showAd, 500); }
 function showAd() {
   elemMain.innerHTML += `
   <div class="ad" id="Ad">
@@ -13,29 +13,13 @@ function showAd() {
   setEvent()
 }
 function setEvent() {
-  elemMain.querySelector('#Ad').addEventListener('click', atClick, true)
+  elemMain.querySelector('#Ad').addEventListener('click', atClick, true);
 }
-
-function check() {
-  let closedTime = parseInt(localStorage.getItem('time'));
-  if (closedTime) {
-    let now = Date.now();
-    const expire = 1000 * 60 * 60 * 24
-    if ((now - closedTime) > expire) {
-      localStorage.removeItem('time');
-      return true;
-    }
-    return false;
-  } 
-  return true
-  
-}
-
 function recordTime() {
-  let now = Date.now();
-  localStorage.setItem('time', now);
+  const now = new Date();
+  const exp = new Date(now.setDate(now.getDate() + 1));
+  document.cookie = `isClosed = true; expires = ${exp.toUTCString()}`;
 }
-
 function atClick(e) {
   const self = e.target;
   if (self.nodeName !== 'P') return;
