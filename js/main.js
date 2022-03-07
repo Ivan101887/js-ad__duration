@@ -7,13 +7,13 @@ function showAd() {
   <a href="javascript:;" class="ad__link">
   <img class="ad__img" src="./images/ee6e7376381d5d0791e9cf1f5a802773.jpg" alt="ad" width="1000" height="500">
   </a>
-  <p class="ad__close">X</p>
+  <button type="button" class="ad__close">X</button>
   </div>
   `
-  setEvent()
+  setEvent();
 }
 function setEvent() {
-  elemMain.querySelector('#Ad').addEventListener('click', atClick, true);
+  elemMain.querySelector('#Ad').addEventListener('click', atClick);
 }
 function recordTime() {
   const now = new Date();
@@ -22,7 +22,7 @@ function recordTime() {
 }
 function atClick(e) {
   const self = e.target;
-  if (self.nodeName !== 'P') return;
+  if (self.nodeName !== 'BUTTON') return;
   elemMain.querySelector('#Ad').remove();
   recordTime();
 }
