@@ -12,6 +12,15 @@ html {
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .container {
   max-width: 1200px;
 }
@@ -57,6 +66,7 @@ html {
 }
 
 .ad {
+  animation: fadeIn 1s;
   background: {
     color: rgba(37, 37, 37, 0.4);
   }
@@ -82,6 +92,7 @@ html {
     background: {
       color: #fff;
     }
+    user-select: none;
     text-align: center;
     border-radius: 50%;
     padding: 5px;

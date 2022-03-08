@@ -59,6 +59,24 @@ html {
   background-color: #93044C;
 }
 
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .container {
   max-width: 1200px;
 }
@@ -90,6 +108,8 @@ html {
 }
 
 .ad {
+  -webkit-animation: fadeIn 1s;
+          animation: fadeIn 1s;
   background-color: rgba(37, 37, 37, 0.4);
   position: fixed;
   bottom: 0;
@@ -115,6 +135,10 @@ html {
   width: 15px;
   height: 15px;
   background-color: #fff;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   text-align: center;
   border-radius: 50%;
   padding: 5px;
