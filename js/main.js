@@ -1,7 +1,5 @@
 const elemMain = document.querySelector('#Main');
-console.log('the time now is ',Date())
 const isShow = check();
-console.log(isShow);
 if (isShow) { setTimeout(showAd, 500); }
 function showAd() {
   elemMain.innerHTML += `
@@ -21,14 +19,10 @@ function setEvent() {
 
 function check() {
   let closedTime = parseInt(localStorage.getItem('time'));
-  console.log('last closed on: ',closedTime)
   if (closedTime) {
     let now = Date.now();
     const expire = 1000 * 60 * 60 * 24
-    console.log('最大時限',expire)
-    console.log('距離上次關閉廣告:',(now - closedTime) > expire);
     if ((now - closedTime) > expire) {
-      console.log('removed')
       localStorage.removeItem('time');
       return true;
     }
